@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8"/>
+<title>Insert title here</title>
+<!-- 导入jQuery -->
+<script th:src="@{webjars/jquery/3.2.1/jquery.js}" type="text/javascript" charset="utf-8"></script>
+<!-- 导入bootstrap -->
+<link rel="stylesheet"
+	th:href="@{/webjars/bootstrap/3.2.0/css/bootstrap.min.css}"
+	href="/webjars/bootstrap/3.2.0/css/bootstrap.min.css" />
+	<link rel="stylesheet"
+	th:href="@{/bootstrap3/bootstrap-table/bootstrap-table.css}"
+	href="bootstrap3/bootstrap-table/bootstrap-table.css" />
+	
+	<script type="text/javascript"  th:src="@{/js/bootstrap-treeview.js}"></script>
+</head>
+<body>
+<div id="tree" ></div>
+
+ 
+ <script type="text/javascript">
+ $(function(){
+	
+			$.post("tree/showTree",function(data){
+				
+				var tree = JSON.parse(data);
+				$('#tree').treeview({data: tree});   
+			})
+	
+		
+ })
+ 
+	
+</script>
+</body>
+</html>
